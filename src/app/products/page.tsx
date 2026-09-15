@@ -1,11 +1,4 @@
-import ProductsHero from '@/components/products-hero';
-import ProductsGrid from '@/components/products-grid';
-
-export default function Products() {
-  return (
-    <main>
-      <ProductsHero />
-      <ProductsGrid />
-    </main>
-  );
-}
+import { Intro, Closing, Action } from '@/components/site-ui';
+import PlatformPreview from '@/components/platform-preview';
+export const metadata={title:'Sentinel 365'};
+export default function Products(){return <><Intro label="PLATFORM / SENTINEL 365" title="Bring the operation into focus.">An operational intelligence direction for connecting asset location, device telemetry and the workflows around them.</Intro><section className="wrap product-preview"><PlatformPreview/></section><section className="section wrap"><div className="section-heading"><h2>From a signal<br/>to useful context.</h2><p>Explore the components of a connected deployment. Product availability and the exact integration scope are confirmed for each project.</p></div><div className="product-capabilities">{[['Visibility','Asset identities, site context and movement views.'],['Monitoring','Measurements and equipment state with historical context.'],['Workflows','Rules, review queues and agreed operational handoffs.'],['Integration','Assess how data connects with your existing systems.']].map(([title,copy],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section><section className="ecosystem"><div className="wrap section"><span className="eyebrow">CONNECTED HEALTHCARE</span><h2>A related perspective on care.</h2><div className="ecosystem-grid"><article><h3>CareGrid</h3><p>A demonstration care-team workspace for fictional people, readings, alerts and follow-up tasks. Real-device integration and authenticated patient access are not enabled.</p><Action href="/contact?topic=CareGrid%20demonstration" secondary>Discuss CareGrid</Action></article><article><h3>HomeClinicStore</h3><p>A home-healthcare device discovery and enquiry experience, with CGM and practical home monitoring at its centre.</p><Action href="https://ai-ninja-dev.github.io/homeclinicstore/" secondary>Explore HomeClinicStore</Action></article></div></div></section><Closing/></>}

@@ -1,13 +1,4 @@
-import SolutionHero from '@/components/solutions-hero';
-import SolutionCards from '@/components/solutions-cards';
-import SolutionDetails from '@/components/solutions-details';
-
-export default function Solutions() {
-  return (
-    <main>
-      <SolutionHero />
-      <SolutionCards />
-      <SolutionDetails />
-    </main>
-  );
-}
+import { Intro, Closing, Action, Symbol } from '@/components/site-ui';
+import { solutions } from '@/lib/content';
+export const metadata={title:'Solutions'};
+export default function Solutions(){return <><Intro label="SOLUTIONS" title="Start with what matters.">From asset location to operating conditions, shape a connected solution around the decisions your team needs to make.</Intro><div className="wrap solution-details">{solutions.map((s,i)=><section className="solution-detail" id={s.slug} key={s.slug}><div><span className="number">0{i+1}</span><Symbol kind={s.icon} size={33}/></div><div><h2>{s.title}</h2><p>{s.description}</p><ul>{s.points.map(p=><li key={p}>{p}</li>)}</ul></div><aside><span className="eyebrow">STARTING QUESTION</span><h3>{s.question}</h3><Action href={`/contact?topic=${encodeURIComponent(s.title)}`}>Discuss this solution</Action></aside></section>)}</div><section className="wrap note-band"><h2>Designed around the deployment.</h2><p>Device compatibility, communications coverage, data refresh, alert rules and support are defined during scoping. A solution area is not a guarantee that every device or site is supported.</p></section><Closing/></>}

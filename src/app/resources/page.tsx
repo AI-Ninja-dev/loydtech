@@ -1,11 +1,7 @@
-import ResourcesHero from '@/components/resources-hero';
-import ResourcesGrid from '@/components/resources-grid';
-
-export default function Resources() {
-  return (
-    <main>
-      <ResourcesHero />
-      <ResourcesGrid />
-    </main>
-  );
-}
+import { Intro, Closing, Action } from '@/components/site-ui';
+export const metadata={title:'Resources'};
+export default function Resources(){return <><Intro label="RESOURCES" title="Better questions. Better projects.">Practical starting points for defining a connected operation. Original project-planning guidance from the Loydtech website.</Intro><section className="wrap guides">{[
+['pilot','Planning an IoT pilot','Start small enough to learn, but close enough to the real operation to be useful.',['Choose one operational question and the team responsible for it.','Define the assets, location and conditions within the pilot boundary.','Agree measurable acceptance criteria for coverage, data quality and workflow usability.','Document what a successful pilot must demonstrate before expanding.']],
+['location','Choosing the right location detail','Room-level visibility and precise positioning are different requirements.',['Describe the decision that depends on location information.','Identify indoor and outdoor areas, movement patterns and physical constraints.','Agree update frequency, accuracy expectations and battery considerations.','Test performance in the actual environment rather than relying on a generic specification.']],
+['alerts','Designing useful alerts','An alert is only useful when someone understands what to do next.',['Specify the condition and context that should trigger review.','Choose the responsible role and the expected response process.','Consider missing data and unavailable devices separately from abnormal readings.','Review alert volume during the pilot and refine rules with the operational team.']]
+].map(([id,title,intro,points])=><article id={id as string} key={id as string}><span className="eyebrow">PROJECT GUIDE</span><h2>{title}</h2><p className="lead">{intro}</p><ol>{(points as string[]).map(p=><li key={p}>{p}</li>)}</ol><Action href={`/contact?topic=${encodeURIComponent(title as string)}`} secondary>Discuss your requirements</Action></article>)}</section><Closing/></>}

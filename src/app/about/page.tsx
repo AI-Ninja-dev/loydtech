@@ -1,17 +1,4 @@
-import Hero from '@/components/about-hero';
-import Timeline from '@/components/about-timeline';
-import Values from '@/components/about-values';
-import Team from '@/components/about-team';
-import Certifications from '@/components/about-certifications';
-
-export default function About() {
-  return (
-    <main>
-      <Hero />
-      <Timeline />
-      <Values />
-      <Team />
-      <Certifications />
-    </main>
-  );
-}
+import { Intro, Closing } from '@/components/site-ui';
+import { process } from '@/lib/content';
+export const metadata={title:'About'};
+export default function About(){return <><Intro label="ABOUT LOYDTECH" title="People. Technology. A clearer perspective.">Loydtech Digital Solutions connects physical operations with useful digital intelligence through IoT, location, monitoring and operational workflows.</Intro><section className="about-statement"><div className="wrap"><span className="eyebrow">OUR APPROACH</span><h2>The point isn’t more data.<br/>It’s a better understanding<br/><span>of what happens next.</span></h2><p>We start with the operational need: what your team needs to see, what they need to know, and what they can do with that information. Technology choices follow that understanding.</p></div></section><section className="section wrap"><div className="section-heading"><h2>Practical by design.</h2><p>A clear scope helps everyone understand what will be delivered, how it will be evaluated and who will support it.</p></div><div className="process-grid">{process.map(([title,copy],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section><section className="wrap note-band"><h2>Trust is part of the architecture.</h2><p>Access, data ownership, retention and operational responsibilities belong in the design conversation. Security and regulatory requirements must be assessed for the deployment; this website does not claim certification or blanket compliance.</p></section><Closing/></>}

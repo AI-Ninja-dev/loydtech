@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import { ArrowUpRight, MapPin, Radio, Snowflake, Building2, Zap, Network } from 'lucide-react';
+export function Action({href, children, secondary=false}: {href:string;children:React.ReactNode;secondary?:boolean}) {return <Link className={`action ${secondary?'secondary':''}`} href={href}>{children}<span><ArrowUpRight size={17}/></span></Link>}
+export function Symbol({kind,size=24}:{kind:string;size?:number}) {const Icon=({location:MapPin,signal:Radio,cold:Snowflake,building:Building2,energy:Zap,network:Network} as const)[kind as 'location']||Network;return <Icon size={size} strokeWidth={1.5} aria-hidden="true"/>}
+export function Intro({label,title,children}:{label:string;title:string;children:React.ReactNode}) {return <section className="page-intro wrap"><span className="eyebrow">{label}</span><h1>{title}</h1><p>{children}</p></section>}
+export function Closing(){return <section className="closing"><div className="wrap closing-inner"><div><span className="eyebrow">START WITH YOUR OPERATION</span><h2>What would you like<br/>to see more clearly?</h2></div><div><p>Tell us what you need to track, monitor or connect. Let’s define a practical next step.</p><Action href="/contact">Discuss your project</Action></div></div></section>}

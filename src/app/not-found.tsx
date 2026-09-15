@@ -1,0 +1,2 @@
+import { Intro, Action } from '@/components/site-ui';
+export default function NotFound(){return <><Intro label="PAGE NOT FOUND" title="Let’s get you connected again.">The page you requested isn’t here. Explore the solutions or start a conversation about your project.</Intro><div className="wrap not-found-actions"><Action href="/">Back to home</Action><Action href="/solutions" secondary>Explore solutions</Action></div></>}

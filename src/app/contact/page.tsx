@@ -1,21 +1,5 @@
-import ContactHero from '@/components/contact-hero';
-import ContactForm from '@/components/contact-form';
-import ContactInfo from '@/components/contact-info';
-
-export default function Contact() {
-  return (
-    <main>
-      <ContactHero />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="col-span-1 lg:col-span-2">
-            <ContactForm />
-          </div>
-          <div className="lg:col-span-1">
-            <ContactInfo />
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-}
+import { Suspense } from 'react';
+import { Intro } from '@/components/site-ui';
+import Enquiry from '@/components/project-enquiry';
+export const metadata={title:'Discuss your project'};
+export default function Contact(){return <><Intro label="LET’S TALK" title="Start with the right conversation.">Tell us what you need to track, monitor or connect. A clear description of your operation is the best place to begin.</Intro><section className="wrap contact-layout"><aside><span className="eyebrow">PROJECT ENQUIRIES</span><a className="contact-email" href="mailto:info@loydtech.co.za">info@loydtech.co.za</a><p>South Africa</p><h2>Useful details to include</h2><ul><li>The assets, spaces or conditions involved</li><li>Your site and existing systems</li><li>The decisions you want better information for</li><li>Any timing or integration requirements</li></ul><p className="fine">This form prepares an email. It does not submit information to a server or confirm an appointment.</p></aside><Suspense fallback={<p>Preparing enquiry form…</p>}><Enquiry/></Suspense></section></>}
