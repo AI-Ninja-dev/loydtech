@@ -13,3 +13,13 @@ test('responsive pages and keyboard mobile navigation',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/');await page.getByRole('button',{name:'Open navigation'}).click();await expect(page.getByRole('dialog')).toBeVisible();await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).not.toBeVisible();await expect(page.getByRole('button',{name:'Open navigation'})).toBeFocused();
  await page.screenshot({path:'test-results/loydtech-mobile.png',fullPage:true});await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:'test-results/loydtech-desktop.png',fullPage:true});
 });
+
+test('dark theme and reduced-motion remain readable',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
+ await expect(page.locator('body')).toHaveCSS('background-color','rgb(8, 11, 10)');
+ await expect(page.locator('.pin').first()).toHaveCSS('animation-name','none');
+ await page.locator('.platform-explorer').scrollIntoViewIfNeeded();await expect(page.locator('.platform-explorer')).toHaveCSS('opacity','1');
+ await page.getByRole('button',{name:'Condition monitoring'}).click();await expect(page.locator('.demo-chart path').last()).toHaveCSS('stroke-dashoffset','0px');
+ await page.setViewportSize({width:1440,height:1000});await page.goto('/');await page.screenshot({path:'test-results/loydtech-dark-desktop.png',fullPage:true});
+ await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/loydtech-dark-mobile.png',fullPage:true});
+});

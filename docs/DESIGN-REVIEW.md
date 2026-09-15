@@ -9,3 +9,5 @@ Information audit: the unfinished local draft used cybersecurity-only positionin
 Remaining owner inputs: valid logo file; verified contact mailbox; exact Sentinel 365 release status and integration list; real customer evidence; approved commercial/service terms. No public release was performed.
 
 Final validation: Next.js 16.3.5 static production build and TypeScript checks passed, lint passed, and all three browser suites passed. These suites cover all pages, internal links, platform modes, enquiry prefill/download, keyboard menu behaviour and responsive overflow. No enquiry was sent. Dependency audit reports zero vulnerabilities after the update. Desktop and mobile screenshots were inspected.
+
+Dark visual revision: all routes now use a glossy black/forest palette with emerald highlights, translucent navigation, reflective cards and dark form fields. Section reveals, finite sensor pulses, chart drawing and hover highlights respect reduced-motion preferences. Build and lint passed; four browser suites passed including explicit dark-surface and reduced-motion checks.
