@@ -109,3 +109,13 @@ if (dashboard && window.matchMedia('(pointer:fine)').matches) {
     dashboard.style.transform = '';
   });
 }
+
+
+/* Premium signal-green refresh */
+document.documentElement.classList.add('signal-green-theme');
+const heroCopy = document.querySelector('.hero-copy');
+if (heroCopy) {
+  heroCopy.querySelector('.eyebrow').innerHTML = '<span class="pulse"></span> Connected intelligence for a smarter tomorrow';
+  heroCopy.querySelector('h1').innerHTML = 'Connect.<br>Monitor.<br><span class="gradient-text">Optimise.</span>';
+  heroCopy.querySelector('.hero-lead').textContent = 'IoT and digital solutions that give you real-time visibility, control and insight across assets, environments and operations.';
+}
