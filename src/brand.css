@@ -7,3 +7,33 @@
 @media(max-width:900px){.nav{position:relative}.menu-toggle{display:flex}.nav>.button-small{display:none}.nav-links{position:absolute;top:64px;left:0;right:0;display:flex;flex-direction:column;gap:0;padding:10px;border:1px solid var(--line);border-radius:18px;background:rgba(7,17,31,.96);backdrop-filter:blur(22px);transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s}.nav-links a{padding:14px 12px;border-bottom:1px solid rgba(255,255,255,.05)}.nav-links a:last-child{border-bottom:0}.menu-open .nav-links{transform:none;opacity:1;pointer-events:auto}.about-grid,.contact-intro-grid,.experience-grid{grid-template-columns:1fr}.experience-copy{padding:40px 30px}.experience-panel{margin:0 20px 20px}.ecosystem-grid{grid-template-columns:1fr 1fr}.brand-logo{width:170px;margin:-35px 0 -36px}.nav-wrap.scrolled .brand-logo{width:160px}}
 @media(max-width:620px){.brand-logo-link{min-width:150px}.brand-logo{width:155px;margin:-31px 0 -32px}.experience-section{padding:90px 0}.experience-tabs{overflow-x:auto}.experience-tab{white-space:nowrap;padding:11px 13px}.experience-copy{padding:34px 22px}.experience-panel{margin:0 12px 12px}.experience-visual{height:280px}.experience-metrics div{padding:12px}.ecosystem-grid{grid-template-columns:1fr}.ecosystem-card{min-height:205px}.ecosystem-card h3{margin-top:48px}.brand-section{padding:90px 0}.about-stat{padding:21px}.signature-line{flex-wrap:wrap;gap:10px}.contact-intro{padding-top:70px}.contact-intro-grid{gap:24px}.cta{margin-top:70px}.tech-ribbon{gap:7px}.tech-ribbon span{font-size:9px}.footer-grid{padding:30px 0;min-height:auto}.footer-grid .brand-logo{width:160px}.footer-grid p{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dashboard,.ui-window,.button,.solution-card,.industry,.ecosystem-card,.reveal{transition:none!important;transform:none!important}}
+
+
+/* 2026 Loydtech visual direction — black, white, signal green, glossy */
+.signal-green-theme{--brand-violet:#25ef69;--brand-blue:#21df61;--brand-cyan:#73ff9a;--brand-grad:linear-gradient(105deg,#1ee864,#75ff9b);background:#020403}
+.signal-green-theme body{background:#020403;color:#f7faf8}
+.signal-green-theme .nav-wrap{background:rgba(2,4,3,.7);border-color:rgba(96,255,142,.1);backdrop-filter:blur(24px) saturate(145%)}
+.signal-green-theme .brand-logo-link{filter:grayscale(1) contrast(1.2);background:#fff}
+.signal-green-theme .button{color:#001a08;background:linear-gradient(135deg,#7dffa0,#1de45d);box-shadow:0 0 0 1px rgba(101,255,145,.28),0 14px 42px rgba(31,232,94,.18)}
+.signal-green-theme .button:hover{box-shadow:0 0 0 1px rgba(120,255,158,.45),0 18px 58px rgba(31,232,94,.3)}
+.signal-green-theme .hero{min-height:760px}
+.signal-green-theme .hero:before{content:"";position:absolute;inset:5% -10% auto 42%;height:620px;pointer-events:none;background:radial-gradient(circle,rgba(39,238,101,.14),transparent 62%);filter:blur(8px)}
+.signal-green-theme .hero-copy h1{font-size:clamp(66px,8vw,118px);line-height:.86;letter-spacing:-.07em}
+.signal-green-theme .hero-lead{max-width:680px;color:#aeb8b2}
+.signal-green-theme .dashboard,.signal-green-theme .ui-window,.signal-green-theme .about-panel,.signal-green-theme .experience-shell{background:linear-gradient(145deg,rgba(15,20,17,.92),rgba(3,7,5,.96));border-color:rgba(107,255,150,.15);box-shadow:0 35px 100px rgba(0,0,0,.58),inset 0 1px rgba(255,255,255,.05)}
+.signal-green-theme .dashboard:after{background:linear-gradient(125deg,rgba(255,255,255,.04),transparent 28%,rgba(42,240,103,.07))}
+.signal-green-theme .orb-a,.signal-green-theme .orb-b{background:rgba(35,235,96,.12)}
+.signal-green-theme .trust-strip,.signal-green-theme .platform-section,.signal-green-theme .security-section,.signal-green-theme .brand-section{background:#030604;border-color:rgba(255,255,255,.08)}
+.signal-green-theme .solution-card{background:linear-gradient(155deg,rgba(255,255,255,.035),rgba(255,255,255,.008));border-color:rgba(255,255,255,.09)}
+.signal-green-theme .solution-card:hover{border-color:rgba(67,255,119,.5);box-shadow:0 0 0 1px rgba(57,255,114,.1),0 24px 60px rgba(0,0,0,.45),0 0 42px rgba(34,234,95,.08)}
+.signal-green-theme .kicker,.signal-green-theme .card-icon,.signal-green-theme .industry i,.signal-green-theme .platform-copy li:before,.signal-green-theme .text-link span{color:#45f57a}
+.signal-green-theme .platform-badge{background:rgba(42,240,103,.1);color:#76ff9c;border-color:rgba(70,255,124,.22)}
+.signal-green-theme .map,.signal-green-theme .experience-visual{background-color:#040806}
+.signal-green-theme .pin i,.signal-green-theme .asset-pulse i{background:#56fa84;box-shadow:0 0 0 8px rgba(86,250,132,.08),0 0 22px rgba(86,250,132,.75)}
+.signal-green-theme .about-copy h2,.signal-green-theme .contact-intro h2{color:#fff}
+.signal-green-theme .ecosystem-card:hover{background:linear-gradient(145deg,rgba(44,240,103,.07),rgba(255,255,255,.012))}
+.signal-green-theme .tech-ribbon span{border-color:rgba(255,255,255,.1);background:#050806}
+.signal-green-theme .cta{background:radial-gradient(circle at 88% 0,rgba(43,240,103,.2),transparent 34%),radial-gradient(circle at 8% 100%,rgba(39,231,96,.12),transparent 38%),#050906}
+.signal-green-theme footer{background:#010201;border-color:rgba(255,255,255,.08)}
+.signal-green-theme .scroll-progress{background:linear-gradient(90deg,#22e961,#7dffa0);box-shadow:0 0 15px rgba(48,242,105,.55)}
+@media(max-width:900px){.signal-green-theme .hero{min-height:auto}.signal-green-theme .hero-copy h1{font-size:clamp(58px,15vw,88px)}}
