@@ -1,17 +1,283 @@
-import './styles.css';
-const solutions=[['⌖','Asset Tracking & RTLS','Live location and utilisation visibility for critical assets across rooms, facilities and sites.'],['◉','Remote Monitoring','Continuously monitor temperature, humidity, pressure, power and equipment state.'],['❄','Cold Chain Intelligence','Telemetry, excursion alerts, records and trends for temperature-sensitive operations.'],['▦','Smart Facilities','Connect rooms, equipment, utilities and environmental sensors into one operational view.'],['ϟ','Energy Monitoring','Measure consumption, detect anomalies and understand high-impact energy assets.'],['◇','IoT Security & Compliance','Monitoring, audit trails, controlled access and compliance-minded architecture.']];
-const industries=['Healthcare & Laboratories','Pharmaceutical','Logistics & Cold Chain','Retail','Buildings & Facilities','Energy','Smart Infrastructure'];
-document.querySelector('#app').innerHTML=`
-<header><div class="shell nav"><a class="brand" href="#top"><i></i>LOYDTECH</a><nav><a href="#solutions">Solutions</a><a href="#platform">Sentinel 365</a><a href="#industries">Industries</a><a href="#security">Security</a></nav><a class="btn small" href="#contact">Book a demo ↗</a></div></header>
-<main id="top"><section class="hero shell"><div class="hero-copy"><span class="eyebrow">● CONNECTED INTELLIGENCE FOR A SMARTER TOMORROW</span><h1>Connect.<br>Monitor.<br><em>Optimise.</em></h1><p>IoT and digital solutions that give you real-time visibility, control and insight across assets, environments and operations.</p><div class="actions"><a class="btn" href="#contact">Explore a solution ↗</a><a href="#platform">Discover Sentinel 365 →</a></div><div class="meta"><b>RTLS<small>Live asset visibility</small></b><b>IoT<small>Remote monitoring</small></b><b>AI<small>Operational analytics</small></b></div></div>
-<div class="visual"><div class="halo"></div><div class="dash glass"><div class="dash-head"><div><small>SENTINEL 365</small><h3>Operations overview</h3></div><span>● LIVE</span></div><div class="metrics"><article><small>CONNECTED ASSETS</small><strong>1,284</strong><i>Illustrative data</i></article><article><small>ACTIVE ALERTS</small><strong>08</strong><i>3 require attention</i></article></div><div class="chart"><span>ENVIRONMENTAL TELEMETRY</span><svg viewBox="0 0 600 170"><path d="M0 145 C55 120 80 132 120 102 S200 65 245 94 S310 118 350 78 S415 40 455 62 S530 82 600 25" /></svg></div><div class="asset"><span>❄ Cold Room A <small>2.8°C · Cape Town Facility</small></span><b>Stable</b></div><div class="asset"><span>⌖ Infusion Pump 042 <small>Level 2 · East Wing</small></span><b>Located</b></div></div></div></section>
-<div class="trust"><div class="shell"><span>BUILT FOR CONNECTED ENVIRONMENTS</span><b>HEALTHCARE</b><b>LABS</b><b>PHARMA</b><b>LOGISTICS</b><b>FACILITIES</b></div></div>
-<section id="solutions" class="section shell"><div class="heading"><div><span class="kicker">01 / SOLUTIONS</span><h2>One connected layer for your <muted>physical operations.</muted></h2></div><p>From a single sensor to a multi-site deployment, Loydtech brings real-world data into a platform your team can act on.</p></div><div class="cards">${solutions.map((x,i)=>`<article><small>0${i+1}</small><i>${x[0]}</i><h3>${x[1]}</h3><p>${x[2]}</p><a href="#contact">Learn more ↗</a></article>`).join('')}</div></section>
-<section id="platform" class="platform"><div class="shell platform-grid"><div><span class="kicker">02 / PLATFORM</span><div class="s365">S365</div><h2>Sentinel 365</h2><h3>Your operational intelligence layer.</h3><p>Live asset location, sensor telemetry, alerts, floor plans, geofences and historical analytics in one interface.</p><ul><li>Live maps & indoor asset visibility</li><li>Device telemetry & condition monitoring</li><li>Rules, alerts & escalation workflows</li><li>Historical trends & operational reporting</li><li>API-ready integrations & automation</li></ul></div><div class="map glass"><div class="zone z1">LAB 01</div><div class="zone z2">COLD ROOM</div><div class="zone z3">STORES</div><i class="pin p1"></i><i class="pin p2"></i><i class="pin p3"></i></div></div></section>
-<section id="industries" class="section shell"><div class="heading"><div><span class="kicker">03 / INDUSTRIES</span><h2>Designed for places where <muted>visibility matters.</muted></h2></div></div><div class="industries">${industries.map((x,i)=>`<div><span>0${i+1}</span><strong>${x}</strong><i>↗</i></div>`).join('')}</div></section>
-<section class="section shell"><div class="heading"><div><span class="kicker">04 / HOW IT WORKS</span><h2>From physical asset to <muted>actionable insight.</muted></h2></div></div><div class="steps"><article><span>01</span><h3>Connect</h3><p>Sensors, tags, gateways and equipment feed operational data securely.</p></article><article><span>02</span><h3>Monitor</h3><p>Sentinel 365 brings device state, environment and location into one live view.</p></article><article><span>03</span><h3>Automate</h3><p>Rules trigger alerts, workflows and integrations when conditions change.</p></article><article><span>04</span><h3>Optimise</h3><p>Historical trends reveal opportunities to improve performance.</p></article></div></section>
-<section class="about"><div class="shell about-grid"><div><span class="kicker">05 / LOYDTECH</span><h2>People. Technology.<br><em>A smarter tomorrow.</em></h2><p>Loydtech Digital Solutions connects physical operations to useful digital intelligence through field knowledge, connected devices, cloud platforms and automation.</p></div><div class="glass process"><div><b>01</b>Discover the operational need</div><div><b>02</b>Design the device-to-cloud architecture</div><div><b>03</b>Deploy, integrate and validate</div><div><b>04</b>Monitor, automate and improve</div></div></div></section>
-<section id="security" class="section shell"><div class="heading"><div><span class="kicker">06 / TRUST</span><h2>Secure by design. <muted>Ready for regulated environments.</muted></h2></div><p>Layered security, controlled access, auditability and integration are designed into connected operations.</p></div><div class="eco"><article><span>01</span><h3>Security monitoring</h3><p>Visibility across connected infrastructure and operational events.</p></article><article><span>02</span><h3>Access & audit</h3><p>Role-aware visibility and auditable system activity.</p></article><article><span>03</span><h3>Compliance-minded</h3><p>Architecture aligned to POPIA and common information-security controls.</p></article><article><span>04</span><h3>Integration-ready</h3><p>Connect automation, cloud and security platforms.</p></article></div></section>
-<section class="section shell"><div class="heading"><div><span class="kicker">07 / ECOSYSTEM</span><h2>Built to work across your <muted>technology stack.</muted></h2></div></div><div class="ribbon"><span>Microsoft Azure</span><span>Cisco</span><span>Milesight</span><span>Minew</span><span>ThingsBoard</span><span>n8n</span><span>Wazuh</span><span>Splunk</span></div></section>
-<section id="contact" class="cta shell"><div><span class="kicker">08 / START A PROJECT</span><h2>Turn physical operations into <em>live intelligence.</em></h2></div><div><p>Tell us what you need to track, monitor or optimise. We'll help shape the connected solution.</p><a class="btn" href="mailto:info@loydtech.co.za">Start a conversation ↗</a></div></section></main>
-<footer><div class="shell"><b>LOYDTECH DIGITAL SOLUTIONS</b><span>IoT · RTLS · Remote Monitoring · Analytics</span><span>South Africa · Connected everywhere.</span></div></footer>`;
+import "./styles.css";
+
+const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
+const solutions = [
+  {
+    id: "tracking",
+    title: "Asset tracking",
+    label: "RTLS & asset visibility",
+    headline: "Know where it is. Know what comes next.",
+    description:
+      "Locate equipment, tools and mobile assets across rooms, buildings and sites. Give your team the context to find what they need.",
+    points: [
+      "Indoor location and movement history",
+      "Zone-based alerts and geofences",
+      "Asset availability and utilisation",
+    ],
+  },
+  {
+    id: "monitoring",
+    title: "Remote monitoring",
+    label: "Environmental intelligence",
+    headline: "See changing conditions. Respond sooner.",
+    description:
+      "Bring temperature, humidity, pressure, power and equipment state into one operational view. Set thresholds around what matters to your site.",
+    points: [
+      "Sensor readings and historical trends",
+      "Threshold alerts and escalation",
+      "Equipment and environmental visibility",
+    ],
+  },
+  {
+    id: "cold-chain",
+    title: "Cold chain",
+    label: "Temperature-sensitive operations",
+    headline: "Keep a closer eye on every degree.",
+    description:
+      "Monitor temperature-sensitive environments from storage to handling. Help teams investigate excursions with alerts and a clear history of conditions.",
+    points: [
+      "Cold-room and refrigerator monitoring",
+      "Temperature excursion records",
+      "Trends for investigation and reporting",
+    ],
+  },
+  {
+    id: "facilities",
+    title: "Smart facilities",
+    label: "Connected buildings",
+    headline: "A clearer picture of your whole building.",
+    description:
+      "Connect rooms, equipment, utilities and environmental sensors. Surface the information facilities teams need to plan maintenance and coordinate a response.",
+    points: [
+      "Building and room-level visibility",
+      "Connected equipment condition",
+      "Multi-site operational context",
+    ],
+  },
+  {
+    id: "energy",
+    title: "Energy monitoring",
+    label: "Utility intelligence",
+    headline: "Understand the energy behind your operations.",
+    description:
+      "Track consumption patterns across equipment and locations. Identify unusual use and give your team evidence for better operational decisions.",
+    points: [
+      "Consumption and historical trends",
+      "Unusual-usage investigation",
+      "Equipment and location comparisons",
+    ],
+  },
+  {
+    id: "security",
+    title: "IoT security",
+    label: "Security & compliance",
+    headline: "Build visibility on a stronger foundation.",
+    description:
+      "Design connected operations with controlled access, monitoring and auditability. Integrate information into the processes your team already uses.",
+    points: [
+      "Role-aware access requirements",
+      "Operational events and audit trails",
+      "Integration with security workflows",
+    ],
+  },
+];
+const industries = [
+  [
+    "Healthcare & laboratories",
+    "Critical environments",
+    "Locate equipment and monitor the conditions that matter.",
+  ],
+  [
+    "Logistics & cold chain",
+    "Goods in motion",
+    "Track assets and temperature-sensitive storage.",
+  ],
+  [
+    "Buildings & facilities",
+    "Connected spaces",
+    "Understand equipment, utilities and indoor conditions.",
+  ],
+  [
+    "Pharmaceutical",
+    "Controlled conditions",
+    "Monitor environments and retain excursion records.",
+  ],
+  [
+    "Retail, energy & infrastructure",
+    "Operational visibility",
+    "Connect distributed assets and identify changing usage.",
+  ],
+];
+const brand = '<i aria-hidden="true"></i>LOYDTECH';
+const nav =
+  '<a href="#solutions">Solutions</a><a href="#platform">Sentinel 365</a><a href="#industries">Industries</a><a href="#security">Security</a>';
+
+document.querySelector("#app").innerHTML = `
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="shell nav"><a class="brand" href="#top" aria-label="Loydtech home">${brand}</a><nav class="desktop-nav" aria-label="Main navigation">${nav}</nav><a class="button small nav-cta" href="#contact">Book a demo <span aria-hidden="true">↗</span></a><button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button></div><nav class="mobile-nav shell" id="mobile-nav" aria-label="Mobile navigation" hidden>${nav}<a href="#contact">Book a demo ↗</a></nav></header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title"><div class="hero-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="shell hero-copy"><p class="eyebrow"><span class="brand-line"></span>Connected intelligence. Real-world impact.</p><h1 id="hero-title">Your operations. Connected.<br><span class="spectrum">Your possibilities. Expanded.</span></h1><p class="hero-description">Connect assets, environments and people with IoT intelligence built around the way your business works.</p><div class="actions"><a class="button" href="#contact">Book a demo <span aria-hidden="true">↗</span></a><a class="text-link" href="#platform">Explore Sentinel 365 <span aria-hidden="true">→</span></a></div></div><figure class="hero-visual shell"><img src="${asset("intelligent-campus.webp")}" srcset="${asset("intelligent-campus-800.webp")} 800w, ${asset("intelligent-campus.webp")} 1536w" sizes="(max-width: 800px) 100vw, 1000px" width="1536" height="1024" alt="Architectural concept of connected buildings with illuminated sensor and utility pathways" fetchpriority="high"><figcaption>One connected view of assets, buildings and environments.</figcaption></figure></section>
+  <section class="solution-rail shell" aria-label="Explore solution areas">${solutions.map((s) => `<a href="#solutions" data-select="${s.id}"><span>${s.title}</span><span aria-hidden="true">↗</span></a>`).join("")}</section>
+  <section class="section shell" id="platform"><div class="section-heading centered reveal"><p class="product-label">SENTINEL <strong>365</strong></p><h2>Connected assets.<br><span class="soft">A more complete picture.</span></h2><p>Bring location, sensor telemetry and operational events together. Sentinel 365 is Loydtech’s platform for turning physical activity into useful insight.</p></div><div class="platform-benefits reveal"><article><span class="feature-symbol" aria-hidden="true">↔</span><h3>Connect your environment</h3><p>Shape a device-to-cloud architecture around your assets, sensors and operating requirements.</p></article><article><span class="feature-symbol" aria-hidden="true">◎</span><h3>See what matters</h3><p>Bring readings, locations and events into a view that helps teams understand what is happening.</p></article><article><span class="feature-symbol" aria-hidden="true">↗</span><h3>Act with context</h3><p>Use thresholds, alerts and historical trends to support a more informed operational response.</p></article></div></section>
+  <section class="section solutions-section" id="solutions"><div class="shell"><div class="section-heading reveal"><h2>Many moving parts.<br><span class="spectrum">One connected approach.</span></h2><p>Explore the building blocks of your next connected operation.</p></div><div class="solution-tabs" role="tablist" aria-label="Solution areas">${solutions.map((s, i) => `<button role="tab" id="tab-${s.id}" data-tab="${s.id}" aria-selected="${i === 0}" aria-controls="solution-panel" tabindex="${i === 0 ? 0 : -1}">${s.title}</button>`).join("")}</div><div class="solution-panel" id="solution-panel" role="tabpanel" aria-labelledby="tab-tracking" tabindex="0"></div></div></section>
+  <section class="section shell building-section"><div class="building-copy reveal"><p class="eyebrow">From device to decision</p><h2>Make your physical world<br><span class="soft">work smarter.</span></h2><p>From a single sensor to a multi-site deployment, start with the operational problem. Connect the right devices, define useful signals and build a clear response.</p><a class="text-link" href="#contact">Book a demo <span aria-hidden="true">↗</span></a></div><figure class="campus-photo reveal"><img src="${asset("connected-campus.webp")}" srcset="${asset("connected-campus-800.webp")} 800w, ${asset("connected-campus.webp")} 1536w" sizes="(max-width: 800px) 100vw, 1000px" alt="Concept visualization of a connected commercial campus at dusk" width="1536" height="1024" loading="lazy"><figcaption>Connected-campus concept illustration.</figcaption></figure><div class="workflow reveal"><div><b>Connect</b><p>Sensors, tags and gateways.</p></div><span aria-hidden="true">→</span><div><b>Monitor</b><p>Conditions, location and state.</p></div><span aria-hidden="true">→</span><div><b>Respond</b><p>Alerts, context and action.</p></div><span aria-hidden="true">→</span><div><b>Improve</b><p>Trends that inform decisions.</p></div></div></section>
+  <section class="section industry-section" id="industries"><div class="shell"><div class="section-heading centered reveal"><h2>Built around your environment.</h2><p>Different industries. Different priorities. A connected approach shaped by the work you do.</p></div><div class="industry-grid reveal">${industries.map((x, i) => `<button class="industry-card ${i === 0 ? "featured" : ""}" data-industry="${x[0]}">${i === 0 ? '<span class="industry-art" aria-hidden="true">+</span>' : ""}<span><small>${x[1]}</small><strong>${x[0]}</strong><span class="industry-description">${x[2]}</span></span><b aria-hidden="true">↗</b></button>`).join("")}</div></div></section>
+  <section class="section shell" id="security"><div class="section-heading reveal"><p class="eyebrow">Designed with responsibility</p><h2>Intelligence needs<br><span class="soft">a trusted foundation.</span></h2><p>Plan security, access and integration from the start. Define the controls your connected operation needs before deployment.</p></div><div class="security-grid reveal"><article><h3>Controlled access</h3><p>Define who can view information and manage devices across your operation.</p></article><article><h3>Operational auditability</h3><p>Include event records and reporting needs in the solution design.</p></article><article><h3>Compliance-minded design</h3><p>Scope data handling and controls around POPIA and your applicable requirements.</p></article><article><h3>Integration-ready thinking</h3><p>Connect relevant information to your existing platforms and response workflows.</p></article></div></section>
+  <section class="about-section shell reveal" id="about"><div><span class="brand compact">${brand}</span><h2>People. Technology.<br>A smarter tomorrow.</h2></div><div><p>Loydtech Digital Solutions connects physical operations to useful digital intelligence through field knowledge, connected devices, cloud platforms and automation.</p><p>We start with what you need to track, monitor or improve. Then we shape the architecture, integrations and deployment around that need.</p></div></section>
+  <section class="contact-section shell reveal" id="contact"><div class="contact-grid" aria-hidden="true"></div><h2>Your next connection<br><span class="spectrum">starts here.</span></h2><p>Tell us what you need to track, monitor or optimise.<br>Let’s explore the right approach together.</p><button class="button" data-enquire>Book a demo <span aria-hidden="true">↗</span></button><a class="contact-email" href="mailto:info@loydtech.co.za">info@loydtech.co.za</a></section>
+</main>
+<footer class="shell"><div class="footer-top"><a class="brand" href="#top">${brand}</a><p>Connected intelligence.<br>A smarter tomorrow.</p><nav aria-label="Footer navigation"><a href="#platform">Sentinel 365</a><a href="#solutions">Solutions</a><a href="#about">About Loydtech</a><a href="mailto:info@loydtech.co.za">Contact</a></nav></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Loydtech Digital Solutions.</span><span>South Africa</span><button class="plain-button" data-privacy>Privacy</button></div></footer>
+<dialog id="enquiry-dialog" aria-labelledby="enquiry-title"><div class="dialog-head"><span class="eyebrow">Let’s talk</span><button class="close-button" data-close aria-label="Close enquiry">×</button></div><h2 id="enquiry-title">Book a demo.</h2><p>Share a little about your operation. This form prepares an email for you to review and send.</p><form id="enquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100"></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="200"></label></div><label>Company<input name="company" autocomplete="organization" maxlength="150"></label><label>Area of interest<select name="interest">${solutions.map((s) => `<option>${s.title}</option>`).join("")}<option>Other / let’s explore</option></select></label><label>What would you like to connect?<textarea name="message" rows="3" required maxlength="2500"></textarea></label><p class="form-note">Your details stay in this browser until you send the email. Please leave out sensitive or patient information.</p><div class="form-actions"><button class="button" type="submit">Prepare email ↗</button><button class="text-link" type="button" id="download-enquiry">Download enquiry</button></div><p class="form-status" role="status" id="form-status"></p></form></dialog>
+<dialog id="privacy-dialog" aria-labelledby="privacy-title"><div class="dialog-head"><h2 id="privacy-title">Website privacy</h2><button class="close-button" data-close aria-label="Close privacy">×</button></div><p>This website does not use analytics or advertising cookies. The enquiry form prepares an email locally; it does not submit your details to a website server.</p><p>If you choose to send the prepared email, your email provider will deliver your name, email address, company and message to info@loydtech.co.za. Downloading an enquiry saves a text file to your device.</p><p>GitHub Pages hosts this website and may process technical request information under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub’s privacy statement</a>. Contact <a href="mailto:info@loydtech.co.za">info@loydtech.co.za</a> with privacy questions.</p></dialog>`;
+
+const tabs = [...document.querySelectorAll("[data-tab]")];
+function selectSolution(id, focus = false) {
+  const s = solutions.find((item) => item.id === id) || solutions[0];
+  tabs.forEach((tab) => {
+    const selected = tab.dataset.tab === s.id;
+    tab.setAttribute("aria-selected", String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    if (selected && focus) tab.focus();
+  });
+  const panel = document.querySelector("#solution-panel");
+  panel.setAttribute("aria-labelledby", `tab-${s.id}`);
+  panel.innerHTML = `<div class="solution-image"><img src="${asset("intelligent-campus.webp")}" srcset="${asset("intelligent-campus-800.webp")} 800w, ${asset("intelligent-campus.webp")} 1536w" sizes="(max-width: 800px) 100vw, 1000px" width="1536" height="1024" alt="Connected-building concept for ${s.title.toLowerCase()}" loading="lazy"><div class="image-caption">${s.label}<span>Concept illustration</span></div></div><div class="solution-copy"><span class="solution-label">${s.label}</span><h3>${s.headline}</h3><p>${s.description}</p><ul>${s.points.map((point) => `<li><span aria-hidden="true">✓</span>${point}</li>`).join("")}</ul><button class="text-link" data-solution-enquire="${s.id}">Discuss this solution <span aria-hidden="true">↗</span></button><p class="scope-note">Capabilities, integrations and deployment requirements are agreed during project scoping.</p></div>`;
+}
+tabs.forEach((tab, index) => {
+  tab.addEventListener("click", () => selectSolution(tab.dataset.tab));
+  tab.addEventListener("keydown", (event) => {
+    let next;
+    if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+    if (event.key === "ArrowLeft")
+      next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === "Home") next = 0;
+    if (event.key === "End") next = tabs.length - 1;
+    if (next !== undefined) {
+      event.preventDefault();
+      selectSolution(tabs[next].dataset.tab, true);
+    }
+  });
+});
+selectSolution("tracking");
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileNav = document.querySelector("#mobile-nav");
+function closeMenu() {
+  mobileNav.hidden = true;
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Open navigation");
+}
+menuToggle.addEventListener("click", () => {
+  const open = menuToggle.getAttribute("aria-expanded") !== "true";
+  mobileNav.hidden = !open;
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute(
+    "aria-label",
+    open ? "Close navigation" : "Open navigation",
+  );
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !mobileNav.hidden) {
+    closeMenu();
+    menuToggle.focus();
+  }
+});
+mobileNav
+  .querySelectorAll("a")
+  .forEach((link) => link.addEventListener("click", closeMenu));
+matchMedia("(min-width: 801px)").addEventListener("change", (event) => {
+  if (event.matches) closeMenu();
+});
+const enquiry = document.querySelector("#enquiry-dialog");
+const form = document.querySelector("#enquiry-form");
+const status = document.querySelector("#form-status");
+let dialogOpener;
+function openDialog(dialog, opener) {
+  dialogOpener = opener;
+  dialog.showModal();
+  document.body.classList.add("modal-open");
+}
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("[data-select]");
+  if (link) selectSolution(link.dataset.select);
+  const trigger = event.target.closest(
+    "[data-enquire],[data-solution-enquire],[data-industry]",
+  );
+  if (trigger) {
+    const s = solutions.find(
+      (item) => item.id === trigger.dataset.solutionEnquire,
+    );
+    const industry = trigger.dataset.industry;
+    if (s) form.elements.interest.value = s.title;
+    if (industry) {
+      form.elements.interest.value = "Other / let’s explore";
+      form.elements.message.value = `I would like to discuss a connected solution for ${industry.toLowerCase()}.`;
+    }
+    status.textContent = "";
+    openDialog(enquiry, trigger);
+  }
+  const privacy = event.target.closest("[data-privacy]");
+  if (privacy) openDialog(document.querySelector("#privacy-dialog"), privacy);
+  const close = event.target.closest("[data-close]");
+  if (close) close.closest("dialog").close();
+});
+document.querySelectorAll("dialog").forEach((dialog) => {
+  dialog.addEventListener("close", () => {
+    document.body.classList.remove("modal-open");
+    dialogOpener?.focus();
+  });
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      const r = dialog.getBoundingClientRect();
+      if (
+        event.clientX < r.left ||
+        event.clientX > r.right ||
+        event.clientY < r.top ||
+        event.clientY > r.bottom
+      )
+        dialog.close();
+    }
+  });
+});
+function enquiryText() {
+  const data = new FormData(form);
+  return `Loydtech demo enquiry\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "Not provided"}\nInterest: ${data.get("interest")}\n\n${data.get("message")}`;
+}
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const subject = `Loydtech demo enquiry: ${form.elements.interest.value}`;
+  window.location.href = `mailto:info@loydtech.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryText())}`;
+  status.textContent =
+    "Your email draft is ready. Send it in your email app to complete the enquiry. If no app opened, download the enquiry and email it to info@loydtech.co.za.";
+});
+document.querySelector("#download-enquiry").addEventListener("click", () => {
+  if (!form.reportValidity()) return;
+  const url = URL.createObjectURL(
+    new Blob([enquiryText()], { type: "text/plain;charset=utf-8" }),
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "loydtech-enquiry.txt";
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  status.textContent =
+    "Enquiry downloaded. Email the file to info@loydtech.co.za when you are ready. Nothing has been submitted.";
+});
+if (
+  "IntersectionObserver" in window &&
+  !matchMedia("(prefers-reduced-motion: reduce)").matches
+) {
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+    { threshold: 0.08 },
+  );
+  document.querySelectorAll(".reveal").forEach((element) => {
+    element.classList.add("will-reveal");
+    observer.observe(element);
+  });
+}

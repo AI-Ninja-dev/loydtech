@@ -1,26 +1,21 @@
-# Loydtech Website
+# Loydtech Digital Solutions
 
-Modern website for Loydtech — connected operations, RTLS, remote monitoring, IoT analytics and Sentinel 365.
+Vite website for Sentinel 365, RTLS, remote monitoring, cold chain, smart facilities and connected operations.
 
-## Run locally
+## Development
 
-```bash
-npm install
-npm run dev
-```
+Use Node.js 22 or newer. Run `npm ci`, then `npm run dev`. Run `npm run build` for the production bundle and `npm run preview` to inspect it under `/loydtech/`.
 
-## Production build
+## Deployment
 
-```bash
-npm run build
-```
+Pushes to `main` run the GitHub Pages workflow. Dependencies are pinned in `package-lock.json` and installed with `npm ci`. The Vite base path is `/loydtech/`.
 
-The first release is intentionally lightweight and framework-minimal, using Vite with vanilla JavaScript and CSS for fast deployment and easy future migration into a larger application stack.
+Live site: https://ai-ninja-dev.github.io/loydtech/
 
-## Current integrated build
+## Design and behaviour
 
-This repository's `main` branch contains the consolidated Loydtech website implementation, including the premium black/white/signal-green visual system, responsive navigation and interactions, Sentinel 365 presentation, RTLS and remote-monitoring solutions, industry sections, security and technology ecosystem content, company/about content, contact experience, Loydtech brand assets, Vite production configuration, and GitHub Pages deployment workflow.
+The 2026 redesign follows Disrupt-X's dark enterprise visual direction with original Loydtech content and imagery. See `docs/design.md` for reference notes and asset provenance.
 
-Production verification: `npm run build` completes successfully in GitHub Actions and generates the `dist` bundle. GitHub Pages publishing is handled separately by the repository Pages configuration and deployment workflow.
+The six solution tabs support arrow keys, Home and End. Industry and solution actions prefill an accessible enquiry dialog. Enquiries prepare an email draft or download a text file; the site has no form-submission backend. No real enquiry was sent during testing.
 
-Last consolidated recommit: 2026-09-18.
+All fonts and artwork are hosted locally. Geist is distributed under the SIL Open Font License included in `public/fonts/OFL.txt`. Building imagery is conceptual rather than a customer photograph.
