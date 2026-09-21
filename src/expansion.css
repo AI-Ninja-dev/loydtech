@@ -1,0 +1,341 @@
+.desktop-nav {
+  gap: 19px;
+  font-size: 12px;
+}
+.nav {
+  gap: 23px;
+}
+.nav-dropdown {
+  position: relative;
+}
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.dropdown-trigger:hover,
+.dropdown-trigger[aria-expanded="true"] {
+  color: var(--accent);
+}
+.dropdown-trigger span {
+  font-size: 15px;
+}
+.dropdown-panel {
+  position: absolute;
+  left: -18px;
+  top: calc(100% + 24px);
+  width: 235px;
+  background: #171d22;
+  border: 1px solid #34424a;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 20px 45px #0006;
+}
+.dropdown-panel a {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 6px;
+  line-height: 1.4;
+  color: #dce3e7;
+  font-size: 12px;
+}
+.dropdown-panel a:hover,
+.dropdown-panel a:focus-visible {
+  background: #23332f;
+  color: var(--accent);
+}
+.app-showcase {
+  border-top: 1px solid var(--line);
+}
+.app-gallery {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: start;
+  gap: 30px;
+}
+.app-gallery figure {
+  background: #12181d;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.app-gallery figure > a {
+  display: block;
+  overflow: hidden;
+}
+.app-gallery img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.app-gallery a:hover img {
+  transform: scale(1.015);
+}
+.web-app-figure img {
+  aspect-ratio: 1.5;
+}
+.mobile-app-figure img {
+  max-height: 540px;
+  object-fit: contain;
+  background: #0c1517;
+}
+.app-gallery figcaption {
+  padding: 26px;
+}
+.app-gallery h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.app-gallery p {
+  font-size: 14px;
+}
+.app-gallery .text-link {
+  margin-top: 18px;
+  font-size: 12px;
+}
+.concept-note,
+.pricing-note {
+  max-width: 750px;
+  margin: 27px auto 0;
+  text-align: center;
+  font-size: 12px;
+  color: #b0bbc3;
+}
+.sector-showcase {
+  padding-block: 35px 100px;
+}
+.sector-feature {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 65px;
+  align-items: center;
+  scroll-margin-top: 100px;
+}
+.sector-feature + .sector-feature {
+  margin-top: 100px;
+}
+.sector-feature figure {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.sector-feature img {
+  aspect-ratio: 1.25;
+  width: 100%;
+  object-fit: cover;
+}
+.sector-feature figcaption {
+  padding: 12px 17px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.sector-copy h2 {
+  font-size: clamp(32px, 3.5vw, 46px);
+  margin: 16px 0 23px;
+}
+.sector-copy > p:not(.solution-label) {
+  font-size: 14px;
+}
+.sector-copy ul,
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+}
+.sector-copy li,
+.price-card li {
+  font-size: 13px;
+  margin: 12px 0;
+  padding-left: 20px;
+  position: relative;
+  color: #cbd4da;
+}
+.sector-copy li:before,
+.price-card li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.healthcare-feature figure {
+  order: 2;
+}
+.healthcare-feature .sector-copy {
+  order: 1;
+}
+.pricing-section {
+  padding-bottom: 10px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  max-width: 970px;
+  margin: auto;
+}
+.price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 38px;
+  border: 1px solid #35443f;
+  border-radius: 18px;
+  background: #121a19;
+}
+.price-card.rollout {
+  background: linear-gradient(140deg, #18232d, #13191d);
+  border-color: #384854;
+}
+.price-card h3 {
+  font-size: 25px;
+  margin-top: 12px;
+}
+.price-card .price-value {
+  font-size: 33px;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 580;
+  color: var(--text);
+  margin: 25px 0 14px;
+}
+.price-card > p:not(.price-value):not(.solution-label) {
+  font-size: 14px;
+}
+.price-card ul {
+  margin-bottom: 30px;
+}
+.price-card .button {
+  align-self: flex-start;
+  margin-top: auto;
+}
+.pricing-note {
+  line-height: 1.8;
+}
+.mobile-nav .dropdown-trigger {
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16px;
+}
+.mobile-nav .dropdown-panel {
+  position: static;
+  width: 100%;
+  box-shadow: none;
+  margin: 5px 0 10px;
+  border-radius: 8px;
+  padding: 6px;
+}
+.mobile-nav .dropdown-panel a {
+  font-size: 13px;
+  border: 0;
+  padding: 11px 14px;
+}
+@media (max-width: 1100px) {
+  .desktop-nav {
+    gap: 13px;
+    font-size: 11px;
+  }
+  .nav {
+    gap: 18px;
+  }
+  .brand {
+    font-size: 17px;
+  }
+  .button.small {
+    padding-inline: 14px;
+  }
+  .sector-feature {
+    gap: 35px;
+  }
+  .app-gallery {
+    gap: 20px;
+  }
+}
+@media (max-width: 950px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .nav-cta {
+    margin-left: auto;
+  }
+  .mobile-nav {
+    max-height: calc(100dvh - 90px);
+    overflow: auto;
+  }
+  .app-gallery {
+    grid-template-columns: 1.35fr 1fr;
+  }
+  .sector-copy h2 {
+    font-size: 34px;
+  }
+  .price-card {
+    padding: 28px;
+  }
+  .price-card .price-value {
+    font-size: 29px;
+  }
+}
+@media (max-width: 700px) {
+  .app-gallery,
+  .sector-feature,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  .app-gallery figure {
+    max-width: 100%;
+  }
+  .mobile-app-figure img {
+    max-height: 570px;
+  }
+  .app-gallery figcaption {
+    padding: 23px;
+  }
+  .sector-feature {
+    gap: 27px;
+  }
+  .sector-feature + .sector-feature {
+    margin-top: 65px;
+  }
+  .healthcare-feature figure,
+  .healthcare-feature .sector-copy {
+    order: initial;
+  }
+  .sector-feature img {
+    aspect-ratio: 1.4;
+  }
+  .sector-showcase {
+    padding-bottom: 65px;
+  }
+  .sector-copy h2 {
+    font-size: 34px;
+  }
+  .concept-note,
+  .pricing-note {
+    font-size: 11px;
+  }
+  .price-card .button {
+    font-size: 12px;
+  }
+  .pricing-section {
+    padding-bottom: 0;
+  }
+  .sector-feature {
+    scroll-margin-top: 90px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-gallery img {
+    transition: none;
+  }
+}

@@ -17,3 +17,12 @@
 - No email was sent and no backend delivery is claimed.
 
 Lighthouse mobile audit on the production preview: performance 94, accessibility 100, best practices 100, SEO 100. The report completed; Chrome cleanup encountered a Windows temporary-file permission error afterward. Responsive 800px image variants were added after this audit.
+
+## App, industry and pricing verification
+
+- Production build and JavaScript syntax checks passed.
+- Desktop dropdown opens, ArrowDown focuses its first link, Escape dismisses it.
+- Mobile Industries dropdown opens; Agriculture IoT navigates and closes both menus.
+- Pricing buttons open the quote dialog with the correct pricing interest and message.
+- New images loaded, app gallery visually inspected, agriculture mobile layout visually inspected.
+- All internal anchors resolve. No console errors or horizontal overflow at 320, 390, 768, 950, 1024 and 1440 pixels.

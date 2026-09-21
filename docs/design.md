@@ -18,3 +18,9 @@ Previous design: black/green, missing web fonts, simulated dashboard panels, mob
 ## Enquiries
 
 The form validates locally and prepares a mailto draft, with a text-file download fallback. It does not send mail, store form data remotely or claim a completed booking. No analytics or third-party embeds are added.
+
+## App, industry and pricing additions
+
+- Added original built-in image-generation assets for the web app, mobile app, agriculture IoT and healthcare IoT. Saved WebP paths and full prompts are in `image-prompts.json`. App interfaces are explicitly labelled concepts with illustrative data; industry imagery is illustrative.
+- Added Solutions and Industries disclosure dropdowns for desktop and mobile, with keyboard support and dismissal on Escape, outside click and focus exit.
+- Added quote-based pilot and rollout pricing. No numeric prices were supplied; no amounts or currency were invented.

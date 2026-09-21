@@ -1,0 +1,30 @@
+[
+  {
+    "name": "web-app",
+    "prompt": "Premium product presentation for Loydtech Sentinel 365 web app CONCEPT. Wide 1536x1024 image. A single large desktop monitor front three-quarter view, black thin bezel on dark charcoal studio background. Screen shows a polished realistic dark IoT operations dashboard, emerald cyan accents, left navigation, facility map, temperature line chart, a few asset status rows. Large legible main title 'Sentinel 365', small label 'Concept preview', use only generic sample data, no patient info. Elegant restrained enterprise product photography and precise screen design. No logos from other brands. Device occupies 80 percent of frame with space on edges. No external captions.",
+    "tool": "Built-in image_gen",
+    "output": "public/images/web-app.webp",
+    "responsiveOutput": "public/images/web-app-700.webp"
+  },
+  {
+    "name": "mobile-app",
+    "prompt": "Premium product presentation for Loydtech Sentinel 365 mobile app CONCEPT. Portrait 1024x1536 image. Two sleek unbranded smartphones at slight complementary angles, one front foreground showing dark IoT app screen with title 'Sentinel 365', temperature card, equipment alerts and room locations; rear phone showing a simplified facility map. Emerald and cyan accent, dark charcoal studio background, sophisticated realistic hardware and UI. Label on screen 'Concept preview'. Only generic sample data; no patient names. No manufacturer logo, no app store logos, no external captions. Keep complete devices inside frame.",
+    "tool": "Built-in image_gen",
+    "output": "public/images/mobile-app.webp",
+    "responsiveOutput": "public/images/mobile-app-700.webp"
+  },
+  {
+    "name": "agriculture-iot",
+    "prompt": "Photorealistic premium editorial website photograph of agriculture IoT, landscape 1536x1024. South African vineyard and vegetable farm at early morning with distant mountains, neat green crop rows, a realistic compact wireless soil moisture probe and small weather station in foreground, drip irrigation visible, farmer inspecting a tablet in middle distance. Natural textures, credible field equipment, subtle emerald vegetation and soft cool light, cinematic clean composition. No text, no overlays, no logos, no floating interfaces. Original conceptual scene, not a named real farm. Rich dark-compatible palette but clear detailed photograph.",
+    "tool": "Built-in image_gen",
+    "output": "public/images/agriculture-iot.webp",
+    "responsiveOutput": "public/images/agriculture-iot-700.webp"
+  },
+  {
+    "name": "healthcare-iot",
+    "prompt": "Photorealistic premium editorial website photograph of healthcare IoT, landscape 1536x1024. Modern hospital equipment storage and clinical corridor, neat infusion pumps on mobile poles and a medicine refrigerator with small wireless temperature sensor, a nurse viewed from behind checking equipment using a tablet. Clean credible clinical environment, realistic equipment without readable labels, soft cool daylight, subtle emerald and cyan colour details, high-end architectural photography. No patients, no patient records, no text, no logos, no floating interfaces. Original conceptual scene, not a named hospital.",
+    "tool": "Built-in image_gen",
+    "output": "public/images/healthcare-iot.webp",
+    "responsiveOutput": "public/images/healthcare-iot-700.webp"
+  }
+]

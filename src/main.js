@@ -1,4 +1,5 @@
 import "./styles.css";
+import { expandWebsite } from "./expansion.js";
 
 const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
 const solutions = [
@@ -130,6 +131,8 @@ document.querySelector("#app").innerHTML = `
 <dialog id="enquiry-dialog" aria-labelledby="enquiry-title"><div class="dialog-head"><span class="eyebrow">Let’s talk</span><button class="close-button" data-close aria-label="Close enquiry">×</button></div><h2 id="enquiry-title">Book a demo.</h2><p>Share a little about your operation. This form prepares an email for you to review and send.</p><form id="enquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100"></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="200"></label></div><label>Company<input name="company" autocomplete="organization" maxlength="150"></label><label>Area of interest<select name="interest">${solutions.map((s) => `<option>${s.title}</option>`).join("")}<option>Other / let’s explore</option></select></label><label>What would you like to connect?<textarea name="message" rows="3" required maxlength="2500"></textarea></label><p class="form-note">Your details stay in this browser until you send the email. Please leave out sensitive or patient information.</p><div class="form-actions"><button class="button" type="submit">Prepare email ↗</button><button class="text-link" type="button" id="download-enquiry">Download enquiry</button></div><p class="form-status" role="status" id="form-status"></p></form></dialog>
 <dialog id="privacy-dialog" aria-labelledby="privacy-title"><div class="dialog-head"><h2 id="privacy-title">Website privacy</h2><button class="close-button" data-close aria-label="Close privacy">×</button></div><p>This website does not use analytics or advertising cookies. The enquiry form prepares an email locally; it does not submit your details to a website server.</p><p>If you choose to send the prepared email, your email provider will deliver your name, email address, company and message to info@loydtech.co.za. Downloading an enquiry saves a text file to your device.</p><p>GitHub Pages hosts this website and may process technical request information under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub’s privacy statement</a>. Contact <a href="mailto:info@loydtech.co.za">info@loydtech.co.za</a> with privacy questions.</p></dialog>`;
 
+expandWebsite(solutions, asset);
+
 const tabs = [...document.querySelectorAll("[data-tab]")];
 function selectSolution(id, focus = false) {
   const s = solutions.find((item) => item.id === id) || solutions[0];
@@ -184,7 +187,7 @@ document.addEventListener("keydown", (event) => {
 mobileNav
   .querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", closeMenu));
-matchMedia("(min-width: 801px)").addEventListener("change", (event) => {
+matchMedia("(min-width: 951px)").addEventListener("change", (event) => {
   if (event.matches) closeMenu();
 });
 const enquiry = document.querySelector("#enquiry-dialog");
@@ -203,14 +206,27 @@ document.addEventListener("click", (event) => {
     "[data-enquire],[data-solution-enquire],[data-industry]",
   );
   if (trigger) {
+    const pricing = trigger.dataset.price;
+    document.querySelector("#enquiry-title").textContent = pricing
+      ? "Request a quote."
+      : "Book a demo.";
     const s = solutions.find(
       (item) => item.id === trigger.dataset.solutionEnquire,
     );
     const industry = trigger.dataset.industry;
     if (s) form.elements.interest.value = s.title;
     if (industry) {
-      form.elements.interest.value = "Other / let’s explore";
+      form.elements.interest.value = [
+        "Agriculture IoT",
+        "Healthcare IoT",
+      ].includes(industry)
+        ? industry
+        : "Other / let’s explore";
       form.elements.message.value = `I would like to discuss a connected solution for ${industry.toLowerCase()}.`;
+    }
+    if (pricing) {
+      form.elements.interest.value = `${pricing} pricing`;
+      form.elements.message.value = `Please prepare a quote for ${pricing.toLowerCase()}.\n\nNumber of sites:\nAssets or conditions to monitor:\nPreferred deployment timeframe:`;
     }
     status.textContent = "";
     openDialog(enquiry, trigger);
