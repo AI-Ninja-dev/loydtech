@@ -1,0 +1,36 @@
+.brand {
+  width: 210px;
+  height: 48px;
+  flex: 0 0 auto;
+  gap: 0;
+  font-size: 0;
+  letter-spacing: 0;
+  background: url("./images/loydtech-logo-dark.svg") left center / contain no-repeat;
+}
+
+.brand i {
+  display: none !important;
+}
+
+.brand.compact {
+  width: 220px;
+  height: 54px;
+}
+
+.footer-top .brand {
+  width: 230px;
+  height: 56px;
+}
+
+@media (max-width: 760px) {
+  .brand {
+    width: 178px;
+    height: 42px;
+  }
+
+  .brand.compact,
+  .footer-top .brand {
+    width: 200px;
+    height: 48px;
+  }
+}
