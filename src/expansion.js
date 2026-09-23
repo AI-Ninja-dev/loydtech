@@ -7,7 +7,7 @@ export function expandWebsite(asset) {
     `<div class="nav-dropdown"><button class="dropdown-trigger" aria-expanded="false" aria-controls="${id}">${label}<span aria-hidden="true">⌄</span></button><div class="dropdown-panel" id="${id}" hidden>${links}</div></div>`;
   const solutionLinks = `<a href="#technology">Four core capabilities</a><a href="#specifications">Specifications</a><a href="#industries">Sectors & use cases</a>`;
   const industryLinks =
-    '<a href="#industries">All industries</a><a href="#healthcare">Healthcare & laboratories</a><a href="#agriculture">Agriculture IoT</a>';
+    `<a href="#industries">All industries</a><a href="${import.meta.env.BASE_URL}industries/healthcare/">Healthcare & laboratories</a><a href="${import.meta.env.BASE_URL}industries/agriculture/">Agriculture IoT</a>`;
   for (const [selector, prefix] of [
     [".desktop-nav", "desktop"],
     [".mobile-nav", "mobile"],
