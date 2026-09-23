@@ -24,10 +24,10 @@ const solutions = [
     label: "RTLS & asset visibility",
     headline: "Know where it is. Know what comes next.",
     description:
-      "Locate equipment, tools and mobile assets across rooms, buildings and sites. Give your team the context to find what they need.",
+    "Locate equipment, tools and mobile assets on custom floor maps across rooms, buildings and sites. Define geofences and give your team the context to find what they need.",
     points: [
-      "Indoor location and movement history",
-      "Zone-based alerts and geofences",
+      "Custom digital floor maps and movement history",
+      "Room, zone and geofence alerts",
       "Asset availability and utilisation",
     ],
   },
@@ -116,7 +116,7 @@ const industries = [
   [
     "Healthcare & laboratories",
     "Critical environments",
-    "Locate equipment and monitor the conditions that matter.",
+    "Track medical equipment and connect RPM and assisted-living workflows.",
     "healthcare-sensors.webp",
     "Healthcare equipment and laboratory monitoring concept",
     "healthcare-sensors.webp"
