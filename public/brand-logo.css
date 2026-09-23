@@ -3,12 +3,18 @@
   height: 48px;
   flex: 0 0 auto;
   gap: 0;
-  font-size: 0;
+  overflow: hidden;
+  font-size: 0 !important;
+  line-height: 0;
   letter-spacing: 0;
+  color: transparent !important;
+  text-indent: -9999px;
+  white-space: nowrap;
   background: url("./images/loydtech-logo-dark.svg") left center / contain no-repeat;
 }
 
-.brand i {
+/* Remove the legacy CSS-drawn icon and any old brand markup completely. */
+.brand > * {
   display: none !important;
 }
 
