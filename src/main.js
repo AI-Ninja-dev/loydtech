@@ -225,6 +225,7 @@ const form = document.querySelector("#enquiry-form");
 const status = document.querySelector("#form-status");
 const hubspotReady = isHubSpotConfigured();
 if (hubspotReady) {
+  document.querySelector("#enquiry-dialog > p").textContent = "Share the essentials. We’ll send your enquiry to Loydtech and follow up with you.";
   document.querySelector("#enquiry-note").textContent = "Please leave out sensitive or patient information. Your enquiry will be sent securely to Loydtech through HubSpot.";
   document.querySelector("#hubspot-consent").hidden = false;
   form.elements.consent.required = true;
@@ -336,3 +337,4 @@ if (
     observer.observe(element);
   });
 }
+
