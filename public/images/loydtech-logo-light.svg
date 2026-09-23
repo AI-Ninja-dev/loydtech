@@ -1,12 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 66" role="img" aria-labelledby="title desc">
   <title id="title">Loydtech Digital Solutions</title>
-  <desc id="desc">Loydtech circuit icon with wordmark and Digital Solutions tagline for light backgrounds.</desc>
-  <g fill="none" fill-rule="evenodd">
-    <rect x="4" y="12" width="72" height="72" rx="3" fill="#0A0C0E"/>
-    <path d="M24 12v30h20v30" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="24" cy="42" r="8" fill="#FFFFFF"/>
-    <circle cx="44" cy="42" r="8" fill="#FFFFFF"/>
-    <text x="94" y="50" fill="#0A0C0E" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="500" letter-spacing="-1.2">Loydtech</text>
-    <text x="96" y="74" fill="#5D6670" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" letter-spacing="2.2">Digital Solutions</text>
-  </g>
+  <desc id="desc">Loydtech icon and wordmark matched to the supplied reference proportions.</desc>
+  <rect x="1" y="2" width="40" height="40" fill="#0A0C0E"/>
+  <path d="M10 2v17h16V2M26 19v23" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="10" cy="19" r="3" fill="#FFFFFF"/>
+  <circle cx="26" cy="19" r="3" fill="#FFFFFF"/>
+  <text x="50" y="42" fill="#0A0C0E" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="400" letter-spacing="0">Loydtech</text>
+  <text x="130" y="63" fill="#555B61" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" letter-spacing="1.2">Digital Solutions</text>
 </svg>
