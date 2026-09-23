@@ -1,11 +1,11 @@
 import "./expansion.css";
 
-export function expandWebsite(solutions, asset) {
+export function expandWebsite(asset) {
   const image = (name, alt, portrait = false) =>
     `<img src="${asset(`${name}.webp`)}" srcset="${asset(`${name}-700.webp`)} 700w, ${asset(`${name}.webp`)} ${portrait ? 1024 : 1536}w" sizes="(max-width: 800px) 100vw, 700px" width="${portrait ? 1024 : 1536}" height="${portrait ? 1536 : 1024}" alt="${alt}" loading="lazy" decoding="async">`;
   const dropdown = (label, id, links) =>
     `<div class="nav-dropdown"><button class="dropdown-trigger" aria-expanded="false" aria-controls="${id}">${label}<span aria-hidden="true">⌄</span></button><div class="dropdown-panel" id="${id}" hidden>${links}</div></div>`;
-  const solutionLinks = `<a href="#technology">Four core capabilities</a><a href="#specifications">Specifications</a><a href="#solutions">Use cases</a>${solutions.map((s) => `<a href="#solutions" data-select="${s.id}">${s.title}</a>`).join("")}`;
+  const solutionLinks = `<a href="#technology">Four core capabilities</a><a href="#specifications">Specifications</a><a href="#industries">Sectors & use cases</a>`;
   const industryLinks =
     '<a href="#industries">All industries</a><a href="#healthcare">Healthcare & laboratories</a><a href="#agriculture">Agriculture IoT</a>';
   for (const [selector, prefix] of [
@@ -26,14 +26,6 @@ export function expandWebsite(solutions, asset) {
       </div><p class="concept-note">Illustrative app concepts with sample data. Final interfaces and availability are confirmed during project scoping.</p>
     </section>`,
   );
-  document.querySelector("#industries").insertAdjacentHTML(
-    "beforebegin",
-    `
-    <section class="sector-showcase shell" aria-label="Agriculture and healthcare IoT examples">
-      <article class="sector-feature reveal" id="agriculture"><figure>${image("agriculture-iot", "Agriculture IoT concept with soil sensor, weather station and tablet beside irrigated crop rows")}<figcaption>Illustrative connected-farm scene.</figcaption></figure><div class="sector-copy"><p class="solution-label">Agriculture IoT</p><h2>Stay closer<br>to every growing condition.</h2><p>Explore connected monitoring for soil, irrigation and farm environments. Bring field observations into a clearer operational picture.</p><ul><li>Soil moisture and environmental sensing</li><li>Water storage and irrigation monitoring</li><li>Weather conditions and threshold alerts</li></ul><button class="text-link" data-industry="Agriculture IoT">Discuss agriculture IoT <span aria-hidden="true">↗</span></button></div></article>
-      <article class="sector-feature healthcare-feature reveal" id="healthcare"><figure>${image("healthcare-iot", "Healthcare IoT concept with nurse, tablet, tagged infusion pumps and a refrigerator temperature sensor")}<figcaption>Illustrative healthcare equipment environment.</figcaption></figure><div class="sector-copy"><p class="solution-label">Healthcare IoT</p><h2>More visibility.<br>Better-equipped teams.</h2><p>Connect equipment location and storage conditions across healthcare facilities and laboratories, helping teams find assets and respond to changes.</p><ul><li>Equipment tracking and room-level visibility</li><li>Refrigerator and cold-room monitoring</li><li>Environmental alerts and condition history</li></ul><button class="text-link" data-industry="Healthcare IoT">Discuss healthcare IoT <span aria-hidden="true">↗</span></button></div></article>
-    </section>`,
-  );
   document.querySelector("#contact").insertAdjacentHTML(
     "beforebegin",
     `
@@ -43,7 +35,7 @@ export function expandWebsite(solutions, asset) {
     .querySelector("footer nav")
     .insertAdjacentHTML(
       "beforeend",
-      '<a href="#technology">Core technology</a><a href="#specifications">Specifications</a><a href="#apps">Web & mobile</a><a href="#agriculture">Agriculture IoT</a><a href="#healthcare">Healthcare IoT</a>',
+      '<a href="#technology">Core technology</a><a href="#specifications">Specifications</a><a href="#apps">Web & mobile</a>',
     );
   document
     .querySelector('select[name="interest"]')

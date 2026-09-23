@@ -149,3 +149,9 @@ dialog input, dialog select, dialog textarea { background: #191919; border-color
   .hero-proof { font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { .capability-grid article, .hero-sector-grid img { transition: none; } }
+
+/* One equipment image and one sector grid keep the visual story concise. */
+.hero-sensor { margin: 64px auto 0; position: relative; overflow: hidden; border: 1px solid #ffffff35; border-radius: 20px; max-width: 1200px; background: #111; }
+.hero-sensor img { width: 100%; height: clamp(300px, 40vw, 560px); display: block; object-fit: cover; object-position: center; }
+.hero-sensor figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 35px 24px 18px; background: linear-gradient(transparent, #000d); color: #eee; font-size: 14px; }
+@media (max-width:700px) { .hero-sensor { margin-top: 38px; border-radius: 12px; } .hero-sensor img { height: 340px; object-position: 49% center; } }
