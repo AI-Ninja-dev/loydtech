@@ -1283,3 +1283,13 @@ textarea {
     transform: none;
   }
 }
+
+/* The current logo is an image in the DOM, independent of a separate stylesheet. */
+.brand { width: 210px; flex: 0 0 auto; gap: 0; line-height: 0; }
+.brand-logo { display: block; width: 100%; height: auto; }
+.brand.compact { width: 220px; }
+.footer-top .brand { width: 230px; }
+@media (max-width: 760px) {
+  .brand { width: 178px; }
+  .brand.compact, .footer-top .brand { width: 200px; }
+}
