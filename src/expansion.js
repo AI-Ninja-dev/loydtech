@@ -20,12 +20,88 @@ export function expandWebsite(asset) {
     `
     <section class="section shell app-showcase" id="apps">
       <div class="section-heading centered reveal"><h2>A wider view.<br><span class="spectrum">Wherever work takes you.</span></h2><p>Sentinel 365 brings selected RTLS, monitoring, analytics and integration data into central web views, with focused mobile views for teams on the move.</p></div>
-      <div class="app-gallery reveal">
-        <figure class="web-app-figure"><a href="${asset("web-app.webp")}" target="_blank" rel="noopener noreferrer" aria-label="View web app concept image in a new tab">${image("web-app", "Sentinel 365 web dashboard concept on a desktop display with sample facility and sensor data")}</a><figcaption><h3>Web app concept</h3><p>A central view for asset locations, environmental trends, alerts and operational events.</p><a class="text-link" href="${asset("web-app.webp")}" target="_blank" rel="noopener noreferrer">View image <span aria-hidden="true">↗</span></a></figcaption></figure>
-        <figure class="mobile-app-figure"><a href="${asset("mobile-app.webp")}" target="_blank" rel="noopener noreferrer" aria-label="View mobile app concept image in a new tab">${image("mobile-app", "Two phones showing a Sentinel 365 mobile app concept with sample alerts and a facility map", true)}</a><figcaption><h3>Mobile app concept</h3><p>Role-appropriate access to locations, conditions and alerts for teams on the move.</p><a class="text-link" href="${asset("mobile-app.webp")}" target="_blank" rel="noopener noreferrer">View image <span aria-hidden="true">↗</span></a></figcaption></figure>
+      <div class="sentinel-preview reveal" data-sentinel-preview>
+        <div class="sentinel-preview__bar"><div class="sentinel-preview__tabs" role="tablist" aria-label="Sentinel 365 views"><button type="button" id="sentinel-web-tab" role="tab" aria-controls="sentinel-web-panel" aria-selected="true" tabindex="0" data-sentinel-tab="0">Desktop dashboard</button><button type="button" id="sentinel-mobile-tab" role="tab" aria-controls="sentinel-mobile-panel" aria-selected="false" tabindex="-1" data-sentinel-tab="1">Mobile app</button></div><button type="button" class="sentinel-preview__toggle" data-sentinel-toggle aria-label="Pause automatic preview">Pause preview</button></div>
+        <div class="sentinel-preview__stage">
+          <figure class="sentinel-panel" id="sentinel-web-panel" role="tabpanel" aria-labelledby="sentinel-web-tab" data-sentinel-panel="0"><a class="sentinel-panel__image" href="${asset("web-app.webp")}" target="_blank" rel="noopener noreferrer" aria-label="Open Sentinel 365 desktop dashboard concept full size">${image("web-app", "Sentinel 365 desktop dashboard concept showing a facility map, temperature trends and asset alerts")}</a><figcaption><span class="sentinel-panel__eyebrow">01 / CENTRAL VIEW</span><h3>Everything in view.</h3><p>A web dashboard concept for locations, sensor trends, alerts and operational events.</p><a class="sentinel-panel__link" href="${asset("web-app.webp")}" target="_blank" rel="noopener noreferrer">View full image <span aria-hidden="true">↗</span></a></figcaption></figure>
+          <figure class="sentinel-panel" id="sentinel-mobile-panel" role="tabpanel" aria-labelledby="sentinel-mobile-tab" data-sentinel-panel="1" hidden><a class="sentinel-panel__image" href="${asset("mobile-app.webp")}" target="_blank" rel="noopener noreferrer" aria-label="Open Sentinel 365 mobile app concept full size">${image("mobile-app", "Two phones showing a Sentinel 365 mobile concept with monitoring alerts and a facility map", true)}</a><figcaption><span class="sentinel-panel__eyebrow">02 / MOBILE VIEW</span><h3>Stay in the loop.</h3><p>Focused mobile views for equipment status, conditions, locations and alerts on the move.</p><a class="sentinel-panel__link" href="${asset("mobile-app.webp")}" target="_blank" rel="noopener noreferrer">View full image <span aria-hidden="true">↗</span></a></figcaption></figure>
+        </div>
+        <div class="sentinel-preview__footer"><span data-sentinel-status>Manual preview</span><span class="sentinel-preview__progress" aria-hidden="true"><span></span></span></div>
       </div><p class="concept-note">Illustrative app concepts with sample data. Final interfaces and availability are confirmed during project scoping.</p>
     </section>`,
   );
+  const preview = document.querySelector("[data-sentinel-preview]");
+  const previewTabs = [...preview.querySelectorAll("[data-sentinel-tab]")];
+  const previewPanels = [...preview.querySelectorAll("[data-sentinel-panel]")];
+  const previewToggle = preview.querySelector("[data-sentinel-toggle]");
+  const previewStatus = preview.querySelector("[data-sentinel-status]");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let currentView = 0;
+  let inView = false;
+  let hovered = false;
+  let focused = false;
+  let manualPause = false;
+  let forcePlay = false;
+  let rotation = null;
+  let playing = false;
+
+  function showPreview(index) {
+    currentView = index;
+    previewTabs.forEach((tab, i) => {
+      tab.setAttribute("aria-selected", String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+      previewPanels[i].hidden = i !== index;
+    });
+  }
+
+  function updatePreviewRotation() {
+    clearInterval(rotation);
+    rotation = null;
+    playing = inView && !document.hidden && !reducedMotion.matches &&
+      !manualPause && (forcePlay || (!hovered && !focused));
+    preview.dataset.playing = String(playing);
+    previewToggle.hidden = reducedMotion.matches;
+    previewToggle.textContent = playing ? "Pause preview" : "Play preview";
+    previewToggle.setAttribute("aria-label", playing ? "Pause automatic preview" : "Play automatic preview");
+    previewStatus.textContent = reducedMotion.matches ? "Manual preview" : playing ? "Auto preview" : "Preview paused";
+    if (playing) rotation = setInterval(() => showPreview((currentView + 1) % previewTabs.length), 7000);
+  }
+
+  function selectPreview(index) {
+    manualPause = true;
+    forcePlay = false;
+    showPreview(index);
+    updatePreviewRotation();
+  }
+
+  previewTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectPreview(index));
+    tab.addEventListener("keydown", (event) => {
+      const next = event.key === "ArrowRight" ? (index + 1) % previewTabs.length
+        : event.key === "ArrowLeft" ? (index - 1 + previewTabs.length) % previewTabs.length
+        : event.key === "Home" ? 0 : event.key === "End" ? previewTabs.length - 1 : null;
+      if (next === null) return;
+      event.preventDefault();
+      selectPreview(next);
+      previewTabs[next].focus();
+    });
+  });
+  previewToggle.addEventListener("click", () => {
+    manualPause = playing;
+    forcePlay = !playing;
+    updatePreviewRotation();
+  });
+  preview.addEventListener("mouseenter", () => { hovered = true; updatePreviewRotation(); });
+  preview.addEventListener("mouseleave", () => { hovered = false; forcePlay = false; updatePreviewRotation(); });
+  preview.addEventListener("focusin", () => { focused = true; updatePreviewRotation(); });
+  preview.addEventListener("focusout", (event) => {
+    if (!preview.contains(event.relatedTarget)) { focused = false; forcePlay = false; updatePreviewRotation(); }
+  });
+  document.addEventListener("visibilitychange", updatePreviewRotation);
+  reducedMotion.addEventListener("change", updatePreviewRotation);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; updatePreviewRotation(); }, { threshold: .25 }).observe(preview);
+  } else { inView = true; updatePreviewRotation(); }
   document.querySelector("#contact").insertAdjacentHTML(
     "beforebegin",
     `
