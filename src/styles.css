@@ -1368,3 +1368,10 @@ textarea {
   .hero-sector-grid figcaption { font-size: 11px; padding: 28px 12px 12px; }
   .industry-card.featured { min-height: 265px; }
 }
+
+/* Keep sector photos in front of card backgrounds across mobile browsers. */
+.industry-card { isolation: isolate; }
+.industry-card__image { z-index: 0; }
+.industry-card::before { z-index: 1; pointer-events: none; }
+.industry-card__content, .industry-card > b { position: relative; z-index: 2; }
+.industry-grid.reveal { opacity: 1; transform: none; }
