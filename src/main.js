@@ -109,7 +109,7 @@ const industries = [
     "Connect distributed assets and identify changing usage.",
   ],
 ];
-const brand = `<img class="brand-logo" src="${asset("loydtech-logo-dark.svg")}" alt="Loydtech Digital Solutions" width="420" height="96">`;
+const brand = `<img class="brand-logo" src="${asset("loydtech-logo-dark.svg")}" alt="Loydtech Digital Solutions" width="260" height="66">`;
 const nav =
   '<a href="#solutions">Solutions</a><a href="#platform">Sentinel 365</a><a href="#industries">Industries</a><a href="#security">Security</a>';
 
