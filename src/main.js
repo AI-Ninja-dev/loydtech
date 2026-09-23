@@ -1,6 +1,7 @@
 import "./styles.css";
 import { expandWebsite } from "./expansion.js";
 import "./redesign.css";
+import { isHubSpotConfigured, submitEnquiryToHubSpot } from "./hubspot.js";
 
 const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
 const partners = [
@@ -186,7 +187,7 @@ document.querySelector("#app").innerHTML = `
   <section class="contact-section shell reveal" id="contact"><div class="contact-grid" aria-hidden="true"></div><p class="eyebrow">LET’S PLAN THE NEXT STEP</p><h2>What would you like<br><span class="spectrum">to see more clearly?</span></h2><p>Describe the site, assets or conditions involved. We’ll use that context to discuss a suitable pilot or deployment scope.</p><div class="contact-actions"><button class="button" data-enquire>Book a discovery call <span aria-hidden="true">↗</span></button><button class="button secondary" data-enquire data-price="Connected rollout">Request a quote <span aria-hidden="true">↗</span></button></div><a class="contact-email" href="mailto:info@loydtech.co.za">info@loydtech.co.za</a></section>
 </main>
 <footer class="shell"><div class="footer-top"><a class="brand" href="#top">${brand}</a><p>Connected intelligence.<br>A smarter tomorrow.</p><nav aria-label="Footer navigation"><a href="#platform">Sentinel 365</a><a href="#industries">Sectors</a><a href="#security">Cybersecurity</a><a href="#pricing">Pricing</a><a href="#about">About Loydtech</a><a href="#roadmap">Roadmap</a><a href="#testimonials">Use cases</a><a href="#research">Research &amp; news</a><a href="mailto:info@loydtech.co.za">Contact</a></nav></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Loydtech Digital Solutions.</span><span>South Africa</span><button class="plain-button" data-privacy>Privacy</button></div></footer>
-<dialog id="enquiry-dialog" aria-labelledby="enquiry-title"><div class="dialog-head"><span class="eyebrow">TELL US ABOUT YOUR PROJECT</span><button class="close-button" data-close aria-label="Close enquiry">×</button></div><h2 id="enquiry-title">Book a discovery call.</h2><p>Share the essentials. We’ll prepare an email you can review and send from your own app.</p><form id="enquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100"></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="200"></label></div><div class="form-row"><label>Company<input name="company" autocomplete="organization" maxlength="150"></label><label>Sector<select name="sector"><option value="">Select a sector</option>${industries.map((x) => `<option>${x[0]}</option>`).join("")}<option>Other</option></select></label></div><label>Area of interest<select name="interest"><option value="">Help me choose</option><option>RTLS & asset tracking</option><option>Remote monitoring</option><option>AI analytics</option><option>Systems integration</option><option>IoT cybersecurity</option>${solutions.map((s) => `<option>${s.title}</option>`).join("")}<option>IoT pilot pricing</option><option>Connected rollout pricing</option></select></label><div class="form-row"><label>Sites or assets to include<input name="scale" maxlength="120" placeholder="e.g. 2 sites, 50 assets"></label><label>Preferred next step<select name="nextStep"><option>Discovery call</option><option>Demo</option><option>Quote</option></select></label></div><label>What do you need to track, monitor or secure?<textarea name="message" rows="3" required maxlength="2500"></textarea></label><p class="form-note">Please leave out sensitive or patient information. This form prepares an email locally; nothing is sent until you send it from your email app.</p><div class="form-actions"><button class="button" type="submit">Prepare email ↗</button><button class="text-link" type="button" id="download-enquiry">Download enquiry</button></div><p class="form-status" role="status" id="form-status"></p></form></dialog>
+<dialog id="enquiry-dialog" aria-labelledby="enquiry-title"><div class="dialog-head"><span class="eyebrow">TELL US ABOUT YOUR PROJECT</span><button class="close-button" data-close aria-label="Close enquiry">×</button></div><h2 id="enquiry-title">Book a discovery call.</h2><p>Share the essentials. We’ll prepare an email you can review and send from your own app.</p><form id="enquiry-form"><div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100"></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="200"></label></div><div class="form-row"><label>Company<input name="company" autocomplete="organization" maxlength="150"></label><label>Sector<select name="sector"><option value="">Select a sector</option>${industries.map((x) => `<option>${x[0]}</option>`).join("")}<option>Other</option></select></label></div><label>Area of interest<select name="interest"><option value="">Help me choose</option><option>RTLS & asset tracking</option><option>Remote monitoring</option><option>AI analytics</option><option>Systems integration</option><option>IoT cybersecurity</option>${solutions.map((s) => `<option>${s.title}</option>`).join("")}<option>IoT pilot pricing</option><option>Connected rollout pricing</option></select></label><div class="form-row"><label>Sites or assets to include<input name="scale" maxlength="120" placeholder="e.g. 2 sites, 50 assets"></label><label>Preferred next step<select name="nextStep"><option>Discovery call</option><option>Demo</option><option>Quote</option></select></label></div><label>What do you need to track, monitor or secure?<textarea name="message" rows="3" required maxlength="2500"></textarea></label><p class="form-note" id="enquiry-note">Please leave out sensitive or patient information. This form prepares an email locally; nothing is sent until you send it from your email app.</p><label class="hubspot-consent" id="hubspot-consent" hidden><input type="checkbox" name="consent"> I agree to Loydtech processing my information to respond to this enquiry.</label><div class="form-actions"><button class="button" type="submit" id="enquiry-submit">Prepare email ↗</button><button class="text-link" type="button" id="download-enquiry">Download enquiry</button></div><p class="form-status" role="status" id="form-status"></p></form></dialog>
 <dialog id="privacy-dialog" aria-labelledby="privacy-title"><div class="dialog-head"><h2 id="privacy-title">Website privacy</h2><button class="close-button" data-close aria-label="Close privacy">×</button></div><p>This website does not use analytics or advertising cookies. The enquiry form prepares an email locally; it does not submit your details to a website server.</p><p>If you choose to send the prepared email, your email provider will deliver your name, email address, company and message to info@loydtech.co.za. Downloading an enquiry saves a text file to your device.</p><p>GitHub Pages hosts this website and may process technical request information under <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub’s privacy statement</a>. Contact <a href="mailto:info@loydtech.co.za">info@loydtech.co.za</a> with privacy questions.</p></dialog>`;
 
 expandWebsite(asset);
@@ -222,6 +223,13 @@ matchMedia("(min-width: 951px)").addEventListener("change", (event) => {
 const enquiry = document.querySelector("#enquiry-dialog");
 const form = document.querySelector("#enquiry-form");
 const status = document.querySelector("#form-status");
+const hubspotReady = isHubSpotConfigured();
+if (hubspotReady) {
+  document.querySelector("#enquiry-note").textContent = "Please leave out sensitive or patient information. Your enquiry will be sent securely to Loydtech through HubSpot.";
+  document.querySelector("#hubspot-consent").hidden = false;
+  form.elements.consent.required = true;
+  document.querySelector("#enquiry-submit").textContent = "Send enquiry ↗";
+}
 let dialogOpener;
 function openDialog(dialog, opener) {
   dialogOpener = opener;
@@ -272,12 +280,29 @@ function enquiryText() {
   const data = new FormData(form);
   return `Loydtech project enquiry\n\nName: ${data.get("name")}\nEmail: ${data.get("email")}\nCompany: ${data.get("company") || "Not provided"}\nSector: ${data.get("sector") || "Not specified"}\nInterest: ${data.get("interest") || "Help me choose"}\nScale: ${data.get("scale") || "Not specified"}\nNext step: ${data.get("nextStep")}\n\n${data.get("message")}`;
 }
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const subject = `Loydtech project enquiry: ${form.elements.interest.value || "New project"}`;
-  window.location.href = `mailto:info@loydtech.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryText())}`;
-  status.textContent =
-    "Your email draft is ready. Send it in your email app to complete the enquiry. If no app opened, download the enquiry and email it to info@loydtech.co.za.";
+  if (!hubspotReady) {
+    const subject = `Loydtech project enquiry: ${form.elements.interest.value || "New project"}`;
+    window.location.href = `mailto:info@loydtech.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(enquiryText())}`;
+    status.textContent = "Your email draft is ready. Send it in your email app to complete the enquiry. If no app opened, download the enquiry and email it to info@loydtech.co.za.";
+    return;
+  }
+  const button = document.querySelector("#enquiry-submit");
+  button.disabled = true;
+  button.textContent = "Sending…";
+  status.textContent = "Sending your enquiry…";
+  try {
+    await submitEnquiryToHubSpot(form, enquiryText());
+    form.reset();
+    status.textContent = "Thank you. Your enquiry has been sent to Loydtech.";
+  } catch (error) {
+    console.error(error);
+    status.textContent = "We could not send the enquiry. Your details are still here. Please try again or email info@loydtech.co.za.";
+  } finally {
+    button.disabled = false;
+    button.textContent = "Send enquiry ↗";
+  }
 });
 document.querySelector("#download-enquiry").addEventListener("click", () => {
   if (!form.reportValidity()) return;
