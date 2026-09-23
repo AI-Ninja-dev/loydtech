@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 96" role="img" aria-labelledby="title desc">
+  <title id="title">Loydtech Digital Solutions</title>
+  <desc id="desc">Loydtech circuit icon with wordmark and Digital Solutions tagline for dark backgrounds.</desc>
+  <g fill="none" fill-rule="evenodd">
+    <rect x="4" y="12" width="72" height="72" rx="3" fill="#FFFFFF"/>
+    <path d="M24 12v30h20v30" stroke="#0A0C0E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="42" r="8" fill="#0A0C0E"/>
+    <circle cx="44" cy="42" r="8" fill="#0A0C0E"/>
+    <text x="94" y="50" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="500" letter-spacing="-1.2">Loydtech</text>
+    <text x="96" y="74" fill="#B7BEC5" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" letter-spacing="2.2">Digital Solutions</text>
+  </g>
+</svg>
