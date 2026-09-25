@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 const sectors = ['healthcare', 'logistics', 'buildings', 'pharmaceutical', 'retail', 'agriculture'];
 
 export default defineConfig({
-  base: '/loydtech/',
+  base: '/',
   build: {
     rollupOptions: {
       input: {
