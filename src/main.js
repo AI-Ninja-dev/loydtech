@@ -172,7 +172,7 @@ const industries = [
     "agriculture-sensors.webp",
     "Agriculture sensors and irrigated crop rows",
     "agriculture-sensors.webp"
-  ]
+  ],
   [
     "EV Charger Monitoring",
     "Connected charging infrastructure",
