@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
-const sectors = ['healthcare', 'logistics', 'buildings', 'pharmaceutical', 'retail', 'agriculture'];
+const sectors = ['healthcare', 'logistics', 'buildings', 'pharmaceutical', 'retail', 'agriculture', 'ev-charging'];
 
 export default defineConfig({
   base: '/',
