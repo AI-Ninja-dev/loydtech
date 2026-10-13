@@ -111,7 +111,7 @@ export function expandWebsite(asset) {
     .querySelector("footer nav")
     .insertAdjacentHTML(
       "beforeend",
-      '<a href="#technology">Core technology</a><a href="#specifications">Specifications</a><a href="#apps">Web & mobile</a><a href="${import.meta.env.BASE_URL}industries/ev-charging/">EV Charger Monitoring</a>',
+      `<a href="#technology">Core technology</a><a href="#specifications">Specifications</a><a href="#apps">Web & mobile</a><a href="${import.meta.env.BASE_URL}industries/ev-charging/">EV Charger Monitoring</a>`,
     );
   document
     .querySelector('select[name="interest"]')
