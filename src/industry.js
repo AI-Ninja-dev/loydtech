@@ -5,7 +5,7 @@ import './industry.css';
 const root = import.meta.env.BASE_URL;
 const sectors = {
   'ev-charging': {
-    name: 'EV Charger Monitoring', label: 'SMART ENERGY & INFRASTRUCTURE', image: 'retail-energy-sensors.webp', alt: 'Energy monitoring and connected infrastructure concept',
+    name: 'EV Charger Monitoring', label: 'SMART ENERGY & INFRASTRUCTURE', image: 'ev-charging.svg', alt: 'Electric vehicle plugged into a connected commercial EV charger',
     lead: 'Monitor charging-station availability, electricity consumption and operational health across locations through a connected IoT approach.',
     challenge: 'Charging infrastructure spans multiple properties, fleets and operators. Teams need visibility into charger availability, energy use, session issues and faults, with service ownership defined for every site.',
     scenarios: [
