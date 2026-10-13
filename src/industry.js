@@ -4,6 +4,24 @@ import './industry.css';
 
 const root = import.meta.env.BASE_URL;
 const sectors = {
+  'ev-charging': {
+    name: 'EV Charger Monitoring', label: 'SMART ENERGY & INFRASTRUCTURE', image: 'retail-energy-sensors.webp', alt: 'Energy monitoring and connected infrastructure concept',
+    lead: 'Monitor charging-station availability, electricity consumption and operational health across locations through a connected IoT approach.',
+    challenge: 'Charging infrastructure spans multiple properties, fleets and operators. Teams need visibility into charger availability, energy use, session issues and faults, with service ownership defined for every site.',
+    scenarios: [
+      ['Live charger monitoring', 'Review supported online or offline states, connector availability, charging sessions and diagnostic fault events.'],
+      ['Charging energy insights', 'Analyse supported power (kW), energy delivered (kWh), voltage, current, demand and consumption patterns.'],
+      ['Faults and maintenance', 'Route communication failures, interrupted sessions and charger faults into alerts, service records and maintenance schedules.'],
+      ['Multi-site operational visibility', 'Provide site-specific views for operators, fleet teams and property managers with strictly scoped customer access.'],
+    ],
+    rtls: 'Register chargers as located physical assets, map site and connector locations, and maintain installation, warranty and service records; RTLS is optional rather than necessary for fixed charging stations.',
+    sensing: 'Integrate compatible chargers via an appropriately validated OCPP 1.6J or 2.0.1 server/gateway, API, MQTT or Modbus gateway. Agree device capabilities, communications, data quality and fault mapping per hardware model.',
+    analytics: 'Compare session history, utilisation, consumption, offline time and recurring faults. Any predictive maintenance insights require sufficient validated historical data.',
+    integration: 'Scope a secure OCPP management layer, ThingsBoard telemetry flows, alerting, tenant isolation and suitable maintenance or reporting system connections. Remote commands are only enabled after compatibility and safety validation.',
+    platform: 'Loydtech can bring charger status, energy analytics, alerts and maintenance information into Sentinel 365/ThingsBoard-aligned dashboards for authorised operators and technicians. Live features require integration with actual compatible charging hardware.',
+    services: ['Assess charger models, OCPP/API capabilities and site connectivity', 'Pilot a charger-to-gateway-to-platform telemetry path', 'Configure location, energy, fault and maintenance views with customer access boundaries', 'Validate device telemetry, service alerts and operational reports before rollout'],
+    security: 'Use secure device identity, TLS, least-privilege credentials, tenant isolation and operational audit logs. Keep payment systems and remote control functions outside monitoring scope unless separately designed, tested and authorised.',
+  },
   healthcare: {
     name: 'Healthcare & laboratories', label: 'CRITICAL ENVIRONMENTS', image: 'healthcare-sensors.webp', alt: 'Medical equipment and connected sensor concept',
     lead: 'Locate medical equipment, connect remote patient monitoring workflows and support safer, more responsive assisted living.',
