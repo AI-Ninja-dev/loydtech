@@ -3,7 +3,7 @@ import { expandWebsite } from "./expansion.js";
 import "./redesign.css";
 import { isHubSpotConfigured, submitEnquiryToHubSpot } from "./hubspot.js";
 
-const asset = (name) => `${import.meta.env.BASE_URL}images/${name}`;
+const asset = (name) => /^https:\/\//.test(name) ? name : `${import.meta.env.BASE_URL}images/${name}`;
 const partners = [
   { name: "Milesight", file: "milesight.svg", width: 164, height: 50 },
   { name: "Huawei", file: "huawei.png", width: 156, height: 50 },
@@ -98,8 +98,8 @@ const solutions = [
   },
   {
     id: "ev-charging",
-    image: "ev-charging.svg",
-    imageSmall: "ev-charging.svg",
+    image: "https://images.unsplash.com/photo-1760539127272-9eb3f0f0a48b?auto=format&fit=crop&w=1600&q=82",
+    imageSmall: "https://images.unsplash.com/photo-1760539127272-9eb3f0f0a48b?auto=format&fit=crop&w=1600&q=82",
     imageAlt: "Electric vehicle connected to a smart charging station",
     title: "EV charger monitoring",
     label: "Smart energy & infrastructure",
@@ -177,9 +177,9 @@ const industries = [
     "EV Charger Monitoring",
     "Connected charging infrastructure",
     "Monitor charger availability, energy trends and faults across sites.",
-    "ev-charging.svg",
-    "Electric vehicle connected to a commercial smart charging station",
-    "ev-charging.svg"
+    "https://images.unsplash.com/photo-1760539127272-9eb3f0f0a48b?auto=format&fit=crop&w=1600&q=82",
+    "Real electric car plugged into a commercial EV charging station",
+    "https://images.unsplash.com/photo-1760539127272-9eb3f0f0a48b?auto=format&fit=crop&w=1600&q=82"
   ],
 ];
 const brand = `<img class="brand-logo" src="${asset("loydtech-logo-white-no-tagline.png")}" alt="Loydtech" width="2048" height="768">`;
